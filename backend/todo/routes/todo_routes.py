@@ -7,6 +7,10 @@ init_db()
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000"])
 
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'ok', 'message': 'Flask Todo API is running'}), 200
+
 @app.route('/api/todos', methods=['GET'])
 def list_todos():
     conn = get_connection()
