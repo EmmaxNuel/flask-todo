@@ -19,7 +19,10 @@ def init_db():
             title TEXT NOT NULL,
             description TEXT,
             completed INTEGER DEFAULT 0,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            priority TEXT DEFAULT 'medium',
+            due_date TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
     conn.commit()
